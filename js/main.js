@@ -13,7 +13,8 @@ function saveBookmark(e){
 
   var bookmark = {
     name: siteName,
-    url: siteUrl
+    url: siteUrl,
+    pic: `https://plus.google.com/_/favicon?domain=${siteUrl}`
   }
 
   /*
@@ -81,11 +82,14 @@ function fetchBookmarks(){
   for(var i = 0; i < bookmarks.length; i++){
     var name = bookmarks[i].name;
     var url = bookmarks[i].url;
+    var pic = bookmarks[i].pic;
 
     bookmarksResults.innerHTML += '<div class="well">'+
+    `<img src="${pic}" >` +  
                                   '<h3>'+name+
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
                                   ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
+                                  
                                   '</h3>'+
                                   '</div>';
   }
